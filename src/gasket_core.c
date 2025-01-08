@@ -1373,7 +1373,8 @@ static long gasket_ioctl(struct file *filp, uint cmd, ulong arg)
 /* File operations for all Gasket devices. */
 static const struct file_operations gasket_file_ops = {
 	.owner = THIS_MODULE,
-	.llseek = no_llseek,
+	// https://github.com/google/gasket-driver/issues/36
+	//.llseek = no_llseek,
 	.mmap = gasket_mmap,
 	.open = gasket_open,
 	.release = gasket_release,
